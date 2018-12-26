@@ -1,0 +1,19 @@
+<h3>Authors</h3>
+<hr />
+<div ng-if="vm.authors == null">
+    No Authors
+</div>
+<div ng-if="vm.authors">
+    <div class="row">
+        <h4 class="col-md-1">Name</h4>
+        <h4 class="col-md-1"></h4>
+        <h4 class="col-md-9">Bio</h4>
+    </div>
+    <div class="row" ng-repeat="author in vm.authors">
+            <div class="col-md-1">
+                <a ui-sref='author({authorId: author.AuthorId})'>{{author.FirstName}}&nbsp;{{author.LastName}}</a>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-9"><p>{{ author.Bio }}</p></div>
+    </div>
+</div>
