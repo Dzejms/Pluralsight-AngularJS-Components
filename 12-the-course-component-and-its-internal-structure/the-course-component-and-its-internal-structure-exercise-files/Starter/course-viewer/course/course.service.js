@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     
-    angular.module('courseViewer').factory('courseService', function (apiBase, $http) {
+    angular.module('courseViewer').factory('courseService', function (apiBase, $http, authenticationService) {
 
         var self = this;
 
@@ -10,14 +10,26 @@
                 .then(function (result) {
                     return result.data;
                 });
-        }
+        };
 
         self.getCourse = function (courseId) {
             return $http.get(apiBase + 'course/' + courseId + '/full')
                 .then(function (result) {
                     return result.data;
                 });
-        }
+        };
+
+        self.getCourseDiscussion = function (courseId) {
+            var accessToken = authenticationService.getAccessToken();
+
+            return $http( {
+                url: apiBase + '/course/' + courseId + '/discussion',
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + accessToken }
+            }).then(function (result) {
+                return result.data;
+            });
+        };
 
         self.timeFormat = function (module) {
             var hours = 0, minutes = 0, seconds = 0;

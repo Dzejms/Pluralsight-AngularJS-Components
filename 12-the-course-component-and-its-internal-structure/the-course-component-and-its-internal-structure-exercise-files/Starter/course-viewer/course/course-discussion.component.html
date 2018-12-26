@@ -1,1 +1,7 @@
-<h4>COURSE DISCUSSION</h4>
+<div ng-if="vm.userIsLoggedIn()">
+    <h4>Discussion</h4>
+    <course-discussion-list discussion="vm.discussion"></course-discussion-list>
+</div>
+<div ng-if="!vm.userIsLoggedIn()">
+    Please log in to view comments.
+</div>
