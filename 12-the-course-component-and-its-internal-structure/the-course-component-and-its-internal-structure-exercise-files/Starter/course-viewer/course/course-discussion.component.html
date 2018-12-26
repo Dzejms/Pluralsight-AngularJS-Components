@@ -11,7 +11,10 @@
             </button>
         </div>
     </div>
-    <course-discussion-item ng-show="vm.commentEntryVisible"></course-discussion-item>
+    <course-discussion-item 
+        ng-show="vm.commentEntryVisible" 
+        comment-submitted="vm.commentSubmitted" comment-cancelled="vm.commentCancelled">
+    </course-discussion-item>
 </div>
 <div ng-if="!vm.userIsLoggedIn()">
     Please log in to view comments.

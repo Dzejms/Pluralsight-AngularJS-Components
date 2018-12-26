@@ -93,7 +93,7 @@
             {
                 name: 'course.discussion',
                 url: '/discussion',
-                template: '<course-discussion course="vm.course"></course-discussion>'
+                template: '<course-discussion course="vm.course" logged-in="vm.authenticationService.loggedIn"></course-discussion>'
             }
         ];
 

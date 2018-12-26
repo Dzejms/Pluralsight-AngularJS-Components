@@ -6,10 +6,11 @@
             courseId: '<'
         },
         controllerAs: 'vm',
-        controller: function (courseService) {
+        controller: function (courseService, authenticationService) {
             var vm = this;
 
             vm.course = undefined;
+            vm.authenticationService = authenticationService;
 
             vm.$onInit = function () {
                 if (vm.courseId) {

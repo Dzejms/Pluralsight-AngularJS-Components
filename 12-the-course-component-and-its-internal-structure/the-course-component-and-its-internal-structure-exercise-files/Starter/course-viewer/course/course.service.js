@@ -31,6 +31,28 @@
             });
         };
 
+        self.addDiscussionItem = function (userName, courseId, comment) {
+            var accessToken = authenticationService.getAccessToken();
+
+            if (accessToken) {
+                var discussionItemModel = {
+                    UserName: userName,
+                    CourseId: courseId,
+                    Comment: comment
+                };
+
+                return $http({
+                    url: apiBase + 'course/' + courseId + '/discussion',
+                    method: 'POST',
+                    headers: { 'Authorization': 'Bearer ' + accessToken },
+                    data: discussionItemModel
+                }).then(function (result) {
+                    return result.data;
+                });
+            }
+
+        };
+
         self.timeFormat = function (module) {
             var hours = 0, minutes = 0, seconds = 0;
 
