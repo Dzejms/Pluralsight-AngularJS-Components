@@ -10,6 +10,7 @@
             var vm = this;
 
             vm.discussion = undefined;
+            vm.commentEntryVisible = false;
 
             vm.$onChanges = function (changes) {
                 if (changes.course.currentValue == null) {
@@ -28,6 +29,11 @@
             vm.userIsLoggedIn = function () {
                 return authenticationService.loggedIn;
             };
+
+            vm.showCommentEntry = function () {
+                vm.commentEntryVisible = true;
+            }
+
         },
         templateUrl: 'course-viewer/course/course-discussion.component.html'
     });

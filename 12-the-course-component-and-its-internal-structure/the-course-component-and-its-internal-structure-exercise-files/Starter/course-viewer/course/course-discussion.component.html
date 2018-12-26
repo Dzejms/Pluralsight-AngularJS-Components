@@ -1,6 +1,17 @@
 <div ng-if="vm.userIsLoggedIn()">
     <h4>Discussion</h4>
     <course-discussion-list discussion="vm.discussion"></course-discussion-list>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary" 
+                        ng-show="!vm.commentEntryVisible"
+                        ng-click="vm.showCommentEntry()">
+                Add Comment
+            </button>
+        </div>
+    </div>
+    <course-discussion-item ng-show="vm.commentEntryVisible"></course-discussion-item>
 </div>
 <div ng-if="!vm.userIsLoggedIn()">
     Please log in to view comments.

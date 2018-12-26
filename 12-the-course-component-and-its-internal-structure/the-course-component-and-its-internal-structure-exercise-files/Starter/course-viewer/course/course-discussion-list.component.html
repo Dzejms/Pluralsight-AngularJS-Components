@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <span>{{ dicussionItem.User.FirstName + ' ' + discussionItem.User.LastName }}</span>
             &nbsp;
-            <span>{{ discussionItem.EnteredOn }}</span>
+            <span>{{ discussionItem.EnteredOn | date : "medium" }}</span>
             <br />
             <span class="comment"> {{ discussionItem.Comment }}</span>
         </div>
